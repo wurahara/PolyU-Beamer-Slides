@@ -1,0 +1,117 @@
+\ProvidesPackage{beamerthemespolyu}[2023/04/24 Beamer Theme for PolyU by Crumble Jon.]
+
+% ================================================================================
+% Packages
+% ================================================================================
+
+\RequirePackage{xcolor}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{verbatim}
+\RequirePackage{hyperref}
+
+% ================================================================================
+% Color Accents
+% ================================================================================
+
+\definecolor{polyured}{HTML}{A02337}
+\definecolor{polyugrey}{HTML}{58595B}
+\definecolor{airforce}{HTML}{6BA4B8}
+
+\setbeamercolor{title}{fg=polyured}
+\setbeamercolor{alerted text}{fg=polyured}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{date}{fg=black}
+\setbeamercolor{normal text}{fg=darkgray,bg=white}
+\setbeamercolor{structure}{fg=polyured}
+\setbeamercolor{block title}{fg=airforceblue,bg=morelightgray}
+\setbeamercolor{block body}{fg=darkgray,bg=morelightgray}
+
+% ================================================================================
+% Fonts
+% ================================================================================
+
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\footnotesize}
+\setbeamerfont{title}{series=\bfseries, size=\Large}
+\setbeamerfont{subtitle}{series=\mdseries,size=\normalsize}
+
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{framesubtitle}{series=\mdseries}
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{block title}{series=\centering, size=\small}
+\setbeamerfont{block body}{size=\scriptsize}
+
+\usefonttheme{serif}
+
+% ================================================================================
+% Basic Settings
+% ================================================================================
+
+% cancel navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% logo for badge
+\pgfdeclareimage[width=0.09\paperwidth]{polyulogo}{images/logo}
+\newcommand{\@Badge}{polyulogo}
+
+% prettier boxes
+\setbeamertemplate{blocks}[rounded]
+
+% bullet points
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{\textemdash}
+\setbeamertemplate{itemize subsubitem}{\ensuremath{\circ}}
+
+\newcommand{\hrefcol}[2]{\textcolor{airforce}{\href{#1}{#2}}}
+
+\setlength{\parskip}{10pt}
+
+% ================================================================================
+% Slide Templates
+% ================================================================================
+
+% headline for all frames
+\setbeamertemplate{headline}{
+	\hspace{0.06\textwidth}
+	\pgfuseimage{\@Badge}
+}
+
+% title and subtitle for all frames
+\setbeamertemplate{frametitle}{
+	\vspace*{-4.5ex}
+	\begin{beamercolorbox}[leftskip=2cm]{frametitle}
+		\usebeamerfont{frametitle}\insertframetitle\\ \vspace{3pt}
+		\usebeamerfont{framesubtitle}\insertframesubtitle
+	\end{beamercolorbox}
+}
+
+% title page
+\setbeamertemplate{title page}{
+	\begin{beamercolorbox}[wd=0.9\textwidth]{title}
+		\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\\
+		\vspace{8pt}
+		\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\\
+		\vspace{1in plus 1fill}
+		\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\\
+		\vspace{5pt}
+		\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
+	\end{beamercolorbox}
+}
+
+% style of sections and subsections in ToCs
+\setbeamertemplate{section in toc}{
+	$\blacktriangleright$~\inserttocsection
+}
+\setbeamertemplate{subsection in toc}{}
+\setbeamertemplate{frametitle continuation}{}
+
+% begin of sections
+\AtBeginSection[]
+{
+    \begingroup
+    \begin{frame}{Contents}{~}
+        \tableofcontents[currentsection]
+    \end{frame}
+    \endgroup
+}
