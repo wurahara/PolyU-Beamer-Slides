@@ -4,6 +4,7 @@
 % Packages
 % ================================================================================
 
+\RequirePackage{tikz}
 \RequirePackage{xcolor}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
@@ -15,17 +16,31 @@
 % ================================================================================
 
 \definecolor{polyured}{HTML}{A02337}
+\definecolor{polyured2}{HTML}{A63547}
 \definecolor{polyugrey}{HTML}{58595B}
-\definecolor{airforce}{HTML}{6BA4B8}
+\definecolor{skyblue}{HTML}{6BA4B8}
 
-\setbeamercolor{title}{fg=polyured}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{date}{fg=white}
+\setbeamercolor{head}{bg=polyured2}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{framesubtitle}{fg=white}
+
 \setbeamercolor{alerted text}{fg=polyured}
-\setbeamercolor{author}{fg=black}
-\setbeamercolor{date}{fg=black}
 \setbeamercolor{normal text}{fg=darkgray,bg=white}
 \setbeamercolor{structure}{fg=polyured}
-\setbeamercolor{block title}{fg=airforceblue,bg=morelightgray}
-\setbeamercolor{block body}{fg=darkgray,bg=morelightgray}
+
+\hypersetup{
+	colorlinks,
+	linkcolor=polyured,
+	anchorcolor=red,
+	citecolor=blue!80,
+	urlcolor=skyblue,
+}
+
+%\setbeamercolor{block title}{fg=airforceblue,bg=morelightgray}
+%\setbeamercolor{block body}{fg=darkgray,bg=morelightgray}
 
 % ================================================================================
 % Fonts
@@ -63,8 +78,6 @@
 \setbeamertemplate{itemize subitem}{\textemdash}
 \setbeamertemplate{itemize subsubitem}{\ensuremath{\circ}}
 
-\newcommand{\hrefcol}[2]{\textcolor{airforce}{\href{#1}{#2}}}
-
 \setlength{\parskip}{10pt}
 
 % ================================================================================
@@ -73,30 +86,44 @@
 
 % headline for all frames
 \setbeamertemplate{headline}{
-	\hspace{0.06\textwidth}
-	\pgfuseimage{\@Badge}
+	\ifnum\theframenumber=1
+	% not display the headline for the title page
+	\else
+		\begin{beamercolorbox}[wd=\paperwidth,ht=40pt]{head}
+			\hspace{410pt}\includegraphics[width=40pt]{source/logo-white.pdf}
+		\end{beamercolorbox}
+	\fi
 }
 
 % title and subtitle for all frames
 \setbeamertemplate{frametitle}{
-	\vspace*{-4.5ex}
-	\begin{beamercolorbox}[leftskip=2cm]{frametitle}
-		\usebeamerfont{frametitle}\insertframetitle\\ \vspace{3pt}
-		\usebeamerfont{framesubtitle}\insertframesubtitle
+	\vspace*{-5ex}
+	\begin{beamercolorbox}{frametitle}
+		\usebeamerfont{frametitle}\usebeamercolor{frametitle}\insertframetitle\\ \vspace{3pt}
+		\usebeamerfont{framesubtitle}\usebeamercolor{framesubtitle}\insertframesubtitle
 	\end{beamercolorbox}
 }
 
 % title page
 \setbeamertemplate{title page}{
-	\begin{beamercolorbox}[wd=0.9\textwidth]{title}
-		\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\\
-		\vspace{8pt}
-		\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\\
-		\vspace{1in plus 1fill}
-		\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\\
-		\vspace{5pt}
-		\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
-	\end{beamercolorbox}
+	\begin{picture}(0,0)
+		\put(-18,92){\includegraphics[width=140pt]{source/logo-name}}
+		\put(-28.5,-75){\includegraphics[width=1.01\paperwidth]{source/jumbo}}
+		\put(280,-110){\includegraphics[width=140pt]{source/tagline}}
+		\put(0,40){%
+			\begin{minipage}{300pt}
+				\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
+				\vspace{10pt}
+				\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+			\end{minipage}
+		}
+		\put(0,-40){%
+			\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
+		}
+		\put(0,-55){%
+			\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
+		}
+	\end{picture}
 }
 
 % style of sections and subsections in ToCs
@@ -110,7 +137,7 @@
 \AtBeginSection[]
 {
     \begingroup
-    \begin{frame}{Contents}{~}
+    \begin{frame}{Contents}{}
         \tableofcontents[currentsection]
     \end{frame}
     \endgroup
