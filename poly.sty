@@ -148,6 +148,19 @@
 \setbeamertemplate{footline}[progress bar]
 \setbeamercolor{progress bar}{fg=polyured,bg=polyugrey}
 
+% last frame
+\newcommand{\backmatter}{
+	\begingroup
+	\setbeamertemplate{headline}{}
+	\setbeamertemplate{footline}{}
+	\begin{frame}[c]{}
+		\begin{picture}(0,0)
+			\put(-28.5,-130){\includegraphics[width=1.01\paperwidth]{source/last-frame}}
+		\end{picture}
+	\end{frame}
+\endgroup
+}
+
 % style of sections and subsections in ToCs
 \setbeamertemplate{section in toc}{
 	$\blacktriangleright$~\inserttocsection
@@ -160,6 +173,9 @@
 {
     \begingroup
     \begin{frame}{Contents}{}
+    	\begin{picture}(0,0)
+    		\put(-28.5,-166){\includegraphics[width=\paperwidth]{source/silhouette}}
+    	\end{picture}
         \tableofcontents[currentsection]
     \end{frame}
     \endgroup
