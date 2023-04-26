@@ -24,12 +24,12 @@
 \setbeamercolor{author}{fg=white}
 \setbeamercolor{date}{fg=white}
 \setbeamercolor{head}{bg=polyured2}
-\setbeamercolor{frametitle}{fg=white}
-\setbeamercolor{framesubtitle}{fg=white}
 
 \setbeamercolor{alerted text}{fg=polyured}
 \setbeamercolor{normal text}{fg=darkgray,bg=white}
 \setbeamercolor{structure}{fg=polyured}
+
+\setbeamercolor{progress bar progress}{use=progress bar,bg=progress bar.fg}
 
 \hypersetup{
 	colorlinks,
@@ -78,6 +78,7 @@
 \setbeamertemplate{itemize subitem}{\textemdash}
 \setbeamertemplate{itemize subsubitem}{\ensuremath{\circ}}
 
+% paragraph spacing
 \setlength{\parskip}{10pt}
 
 % ================================================================================
@@ -87,7 +88,7 @@
 % headline for all frames
 \setbeamertemplate{headline}{
 	\ifnum\theframenumber=1
-	% not display the headline for the title page
+		% not display the headline for the title page
 	\else
 		\begin{beamercolorbox}[wd=\paperwidth,ht=40pt]{head}
 			\hspace{410pt}\includegraphics[width=40pt]{source/logo-white.pdf}
@@ -95,36 +96,57 @@
 	\fi
 }
 
-% title and subtitle for all frames
+% frame title and subtitle
 \setbeamertemplate{frametitle}{
-	\vspace*{-5ex}
-	\begin{beamercolorbox}{frametitle}
-		\usebeamerfont{frametitle}\usebeamercolor{frametitle}\insertframetitle\\ \vspace{3pt}
-		\usebeamerfont{framesubtitle}\usebeamercolor{framesubtitle}\insertframesubtitle
-	\end{beamercolorbox}
+    \begin{picture}(0,0)
+        \ifx\insertframesubtitle\@empty%
+            \put(0,25){\usebeamerfont{frametitle}\usebeamercolor[fg]{title}\insertframetitle}%
+		\else%
+			\put(0,32){\usebeamerfont{frametitle}\usebeamercolor[fg]{title} \insertframetitle}%
+			\put(2,19){\usebeamerfont{framesubtitle}\usebeamercolor[fg]{title} \insertframesubtitle }
+		\fi
+    \end{picture}
 }
 
 % title page
 \setbeamertemplate{title page}{
 	\begin{picture}(0,0)
-		\put(-18,92){\includegraphics[width=140pt]{source/logo-name}}
-		\put(-28.5,-75){\includegraphics[width=1.01\paperwidth]{source/jumbo}}
-		\put(280,-110){\includegraphics[width=140pt]{source/tagline}}
-		\put(0,40){%
+		\put(-18,86){\includegraphics[width=140pt]{source/logo-name}}
+		\put(-28.5,-82){\includegraphics[width=1.01\paperwidth]{source/jumbo}}
+		\put(280,-118){\includegraphics[width=140pt]{source/tagline}}
+		\put(0,25){%
 			\begin{minipage}{300pt}
 				\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
 				\vspace{10pt}
 				\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
 			\end{minipage}
 		}
-		\put(0,-40){%
+		\put(0,-45){%
 			\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
 		}
-		\put(0,-55){%
+		\put(0,-60){%
 			\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
 		}
 	\end{picture}
 }
+
+\defbeamertemplate{footline}{progress bar}{
+	\dimen0=\paperwidth
+	\multiply\dimen0 by \insertframenumber
+	\divide\dimen0 by \inserttotalframenumber
+	\edef\progressbarwidth{\the\dimen0}
+	\leavevmode%
+	\ifnum\theframenumber=1
+	\else
+		\begin{beamercolorbox}[wd=\paperwidth,ht=2pt,dp=1pt]{progress bar}
+			\begin{beamercolorbox}[wd=\progressbarwidth,ht=2pt,dp=1pt]{progress bar progress}
+			\end{beamercolorbox}%
+		\end{beamercolorbox}%
+	\fi
+}
+
+\setbeamertemplate{footline}[progress bar]
+\setbeamercolor{progress bar}{fg=polyured,bg=polyugrey}
 
 % style of sections and subsections in ToCs
 \setbeamertemplate{section in toc}{
