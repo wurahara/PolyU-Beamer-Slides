@@ -10,6 +10,7 @@
 \RequirePackage{amsfonts}
 \RequirePackage{verbatim}
 \RequirePackage{hyperref}
+\RequirePackage{listings}
 
 % ================================================================================
 % Color Accents
@@ -80,6 +81,28 @@
 
 % paragraph spacing
 \setlength{\parskip}{10pt}
+
+% code environment
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{skyblue},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{polyugrey},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    xleftmargin=10pt,
+    xrightmargin=10pt,
+}
+\lstset{style=mystyle}
 
 % ================================================================================
 % Slide Templates

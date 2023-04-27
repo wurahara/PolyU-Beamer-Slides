@@ -5,7 +5,7 @@
 \subtitle{Using \LaTeX\ to prepare slides}
 \author{Crumble Jon}
 
-% document body
+
 \begin{document}
 
 \maketitle
@@ -19,7 +19,7 @@
 \item Beamer is one of the most popular and powerful document
 classes for presentations in \LaTeX
 \item Beamer has also a detailed
-%\hrefcol{http://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{user manual}
+\href{http://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{user manual}
 \item Here we will present only the most basic features to get you up to speed
 \end{itemize}
 \end{frame}
@@ -50,27 +50,27 @@ After the last update to the graphic profile, the \texttt{sintef} theme for
 Beamer has been updated into a full-fledged class.
 To start working with \texttt{sintefbeamer}, start a \LaTeX\ document with the
 preamble:
-%\begin{block}{Minimum SINTEF Beamer Document}
-%\begin{lstlisting}[language=TeX]
-%\documentclass{sintefbeamer}
-%\begin{document}
-%\begin{frame}{Hello, world!}
-%\end {frame}
-%\end{document}
-%\end{lstlisting}
-%\end{block}
+\begin{block}{Minimum SINTEF Beamer Document}
+\begin{lstlisting}[language=TeX]
+\documentclass{sintefbeamer}
+\begin{document}
+\begin{frame}{Hello, world!}
+\end {frame}
+\end{document}
+\end{lstlisting}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Title page}
 To set a typical title page, you call some commands in the preamble:
-%\begin{block}{The Commands for the Title Page}
-%\begin{lstlisting}[language=TeX]
-%\title{Sample Title}
-%\subtitle{Sample subtitle}
-%\author{First Author, Second Author}
-%\date{Defaults to today's}
-%\end{lstlisting}
-%\end{block}
+\begin{block}{The Commands for the Title Page}
+\begin{lstlisting}[language=TeX]
+\title{Sample Title}
+\subtitle{Sample subtitle}
+\author{First Author, Second Author}
+\date{Defaults to today's}
+\end{lstlisting}
+\end{block}
 You can then write out the title page with \verb|\maketitle|.
 
 You can set a different background image than the default one with the
@@ -87,35 +87,34 @@ for SINTEF presentation title pages.
 \item A typical slide has bulleted lists
 \item These can be uncovered in sequence
 \end{itemize}
-%\begin{block}{Code for a Page with an Itemised List}<+->
-%\begin{lstlisting}[language=TeX]
-%\begin{frame}
-%  \frametitle{Writing a Simple Slide}
-%  \framesubtitle{It's really easy!}
-%  \begin{itemize}[<+->]
-%    \item A typical slide has bulleted lists
-%    \item These can be uncovered in sequence
-%  \end{itemize}
-%\end{frame}\end{lstlisting}
-%\end{block}
+\begin{block}{Code for a Page with an Itemised List}<+->
+\begin{lstlisting}[language=TeX]
+\begin{frame}
+  \frametitle{Writing a Simple Slide}
+  \framesubtitle{It's really easy!}
+  \begin{itemize}[<+->]
+    \item A typical slide has bulleted lists
+    \item These can be uncovered in sequence
+  \end{itemize}
+\end{frame}\end{lstlisting}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Adding images}
 \begin{columns}
 \begin{column}{0.7\textwidth}
 Adding images works like in normal \LaTeX:
-%\begin{block}{Code for Adding Images}
-%\begin{lstlisting}[language=TeX]
-%\usepackage{graphicx}
-%% ...
-%\includegraphics
-%[width=\textwidth]{images/default}
-%\end{lstlisting}
-%\end{block}
+\begin{block}{Code for Adding Images}
+\begin{lstlisting}[language=TeX]
+\usepackage{graphicx}
+% ...
+\includegraphics
+[width=\textwidth]{images/default}
+\end{lstlisting}
+\end{block}
 \end{column}
 \begin{column}{0.3\textwidth}
-%\includegraphics
-%[width=\textwidth]{images/default}\\
+\includegraphics[width=\textwidth]{source/jumbo}\\
 \end{column}
 \end{columns}
 \end{frame}
@@ -131,19 +130,19 @@ This is the first column
 And this the second
 \end{column}
 \end{columns}
-%\begin{block}{Column Code}
-%\begin{lstlisting}[language=TeX]
-%\begin{columns}
-%    \begin{column}{0.6\textwidth}
-%        This is the first column
-%    \end{column}
-%    \begin{column}{0.3\textwidth}
-%        And this the second
-%    \end{column}
-%    % There could be more!
-%\end{columns}
-%\end{lstlisting}
-%\end{block}
+\begin{block}{Column Code}
+\begin{lstlisting}[language=TeX]
+\begin{columns}
+    \begin{column}{0.6\textwidth}
+        This is the first column
+    \end{column}
+    \begin{column}{0.3\textwidth}
+        And this the second
+    \end{column}
+    % There could be more!
+\end{columns}
+\end{lstlisting}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -158,8 +157,6 @@ And this the second
 \item ... and not so good ones:
   \begin{itemize}
   \item {\texttt{Never use monospace for normal text}}
-%  \item {\frakfamily Gothic, calligraphic or weird fonts: should always: be
-%  avoided}
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -187,7 +184,7 @@ And this the second
 \begin{itemize}
 \item Enough for an introduction! You should know enough by now
 \item If you have corrections or suggestions,
-%\hrefcol{mailto:federico.zenith@sintef.no}{send them to me!}
+\href{mailto:ruisong20@gmail.com}{send them to me!}
 \end{itemize}
 \end{frame}
 
