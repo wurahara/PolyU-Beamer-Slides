@@ -1,4 +1,4 @@
-\ProvidesPackage{poly}[2023/04/29 Beamer Theme for PolyU by Crumble Jon.]
+\ProvidesPackage{poly}[23/10/2024 Beamer Theme for PolyU (verion 1.1) by Rui Song.]
 
 % ================================================================================
 % Packages
@@ -6,6 +6,8 @@
 
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
+\RequirePackage{textcomp}
+\RequirePackage{graphicx}
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -31,15 +33,15 @@
 \setbeamercolor{institute}				{fg=white}
 \setbeamercolor{head}					{bg=polyured2}
 
-\setbeamercolor{alerted text}			{fg=polyured}
-\setbeamercolor{normal text}			{fg=darkgray, bg=white}
+\setbeamercolor{alerted text}				{fg=polyured}
+\setbeamercolor{normal text}				{fg=darkgray, bg=white}
 \setbeamercolor{structure}				{fg=polyured}
 
-\setbeamercolor{jumbo}					{bg=polyured2}
-\setbeamercolor{progress bar}			{fg=polyured, bg=polyugrey}
-\setbeamercolor{progress bar progress}	{use=progress bar, bg=progress bar.fg}
+\setbeamercolor{jumbo}					{bg=polyured}
+\setbeamercolor{progress bar}				{fg=polyured, bg=polyugrey}
+\setbeamercolor{progress bar progress}			{use=progress bar, bg=progress bar.fg}
 
-\setbeamercolor{block title}			{use=structure, fg=white, bg=polyured2}
+\setbeamercolor{block title}				{use=structure, fg=white, bg=polyured2}
 \setbeamercolor{block body}				{use=structure, fg=darkgray, bg=polyured2!10}
 
 \hypersetup{
@@ -47,7 +49,7 @@
 	linkcolor=polyured,
 	anchorcolor=red,
 	citecolor=blue!80,
-	urlcolor=polyured2,
+	urlcolor=skyblue,
 }
 
 % ================================================================================
@@ -61,10 +63,10 @@
 \setbeamerfont{date}					{size=\footnotesize}
 \setbeamerfont{institute}				{size=\footnotesize}
 
-\setbeamerfont{alerted text}			{series=\bfseries}
+\setbeamerfont{alerted text}				{series=\bfseries}
 
 \setbeamerfont{frametitle}				{series=\bfseries}
-\setbeamerfont{framesubtitle}			{series=\mdseries}
+\setbeamerfont{framesubtitle}				{series=\mdseries}
 \setbeamerfont{footline}				{size=\scriptsize}
 \setbeamerfont{block title}				{size=\normalsize, series=\bfseries}
 \setbeamerfont{block body}				{size=\normalsize}
@@ -82,17 +84,17 @@
 \setbeamertemplate{blocks}[rounded]
 
 % bullet points
-\setbeamertemplate{itemize item}		{\textbullet}
-\setbeamertemplate{itemize subitem}		{\textemdash}
-\setbeamertemplate{itemize subsubitem}	{\ensuremath{\circ}}
+\setbeamertemplate{itemize item}			{\textbullet}
+\setbeamertemplate{itemize subitem}			{\textopenbullet}
+\setbeamertemplate{itemize subsubitem}			{\textendash}
 
 % paragraph spacing
 \setlength{\parskip}					{5pt}
 
 % code environment
 \lstdefinestyle{mystyle}{
-    commentstyle=\color{polyured2!50},
-    keywordstyle=\color{polyured},
+    commentstyle=\color{skyblue},
+    keywordstyle=\color{magenta},
     numberstyle=\tiny\color{polyugrey},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\scriptsize,
@@ -141,29 +143,29 @@
 % title page
 \setbeamertemplate{title page}{
 	\begin{picture}(0,0)
-		\put(-24,67){\includegraphics[width=140pt]{source/logo-name}}
-        \put(-5,-77){
-            \begin{beamercolorbox}[wd=1.1\paperwidth,ht=140pt]{jumbo}
+		\put(-20,60){\includegraphics[width=150pt]{source/logo-name}}
+        \put(0,-90){%
+            \begin{beamercolorbox}[wd=\paperwidth,ht=140pt]{jumbo}
             \end{beamercolorbox}
         }
-        \put(243,-135){\includegraphics[width=250pt]{source/logo-trans}}
-		\put(0,25){%
+        \put(243,-145){\includegraphics[width=250pt]{source/logo-trans}}
+		\put(-8,10){%
 			\begin{minipage}{300pt}
 				\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
 				\vspace{10pt}
 				\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
 			\end{minipage}
 		}
-		\put(0,-45){%
+		\put(-8,-55){%
 			\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
 		}
-        \put(0,-58){%
+        \put(-8,-68){%
 			\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute
 		}
-		\put(0,-70){%
+		\put(-8,-80){%
 			\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
 		}
-        \put(285,-118){\includegraphics[width=140pt]{source/tagline}}
+        \put(285,-133){\includegraphics[width=140pt]{source/tagline}}
 	\end{picture}
 }
 
