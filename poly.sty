@@ -1,4 +1,4 @@
-\ProvidesPackage{poly}[23/10/2024 Beamer Theme for PolyU (verion 1.1) by Rui Song.]
+\ProvidesPackage{poly}[1/11/2024 Beamer Theme for PolyU (verion 1.1.1) by Rui Song.]
 
 % ================================================================================
 % Packages
@@ -22,27 +22,29 @@
 % Color Accents
 % ================================================================================
 
-\definecolor{polyured}					{HTML}{A02337}
-\definecolor{polyured2}					{HTML}{A63547}
-\definecolor{polyugrey}					{HTML}{58595B}
-\definecolor{skyblue}					{HTML}{6BA4B8}
+\definecolor{polyured}					        {HTML}{A02337}
+\definecolor{polyured2}					        {HTML}{A63547}
+\definecolor{polyugrey}					        {HTML}{58595B}
+\definecolor{skyblue}					        {HTML}{6BA4B8}
 
-\setbeamercolor{title}					{fg=white}
-\setbeamercolor{author}					{fg=white}
-\setbeamercolor{date}					{fg=white}
-\setbeamercolor{institute}				{fg=white}
-\setbeamercolor{head}					{bg=polyured2}
+\setbeamercolor{title}					        {fg=white}
+\setbeamercolor{author}					        {fg=white}
+\setbeamercolor{date}					        {fg=white}
+\setbeamercolor{institute}				        {fg=white}
+\setbeamercolor{head}					        {bg=polyured2}
 
-\setbeamercolor{alerted text}				{fg=polyured}
-\setbeamercolor{normal text}				{fg=darkgray, bg=white}
-\setbeamercolor{structure}				{fg=polyured}
+\setbeamercolor{alerted text}			        {fg=polyured}
+\setbeamercolor{normal text}			        {fg=darkgray, bg=white}
+\setbeamercolor{structure}				        {fg=polyured}
 
-\setbeamercolor{jumbo}					{bg=polyured}
-\setbeamercolor{progress bar}				{fg=polyured, bg=polyugrey}
-\setbeamercolor{progress bar progress}			{use=progress bar, bg=progress bar.fg}
+\setbeamercolor{jumbo}					        {bg=polyured}
+\setbeamercolor{progress bar}			        {fg=polyured, bg=polyugrey}
+\setbeamercolor{progress bar progress}	        {use=progress bar, bg=progress bar.fg}
 
-\setbeamercolor{block title}				{use=structure, fg=white, bg=polyured2}
-\setbeamercolor{block body}				{use=structure, fg=darkgray, bg=polyured2!10}
+\setbeamercolor{block title}			        {use=structure, fg=white, bg=polyured2}
+\setbeamercolor{block body}				        {use=structure, fg=darkgray, bg=polyured2!10}
+
+\setbeamercolor{footnote mark}			        {fg=polyured}
 
 \hypersetup{
 	colorlinks,
@@ -56,20 +58,22 @@
 % Fonts
 % ================================================================================
 
-\setbeamerfont{title}					{series=\bfseries, size=\Large}
-\setbeamerfont{subtitle}				{series=\mdseries, size=\normalsize}
+\setbeamerfont{title}					        {series=\bfseries, size=\Large}
+\setbeamerfont{subtitle}				        {series=\mdseries, size=\normalsize}
 
-\setbeamerfont{author}					{size=\small}
-\setbeamerfont{date}					{size=\footnotesize}
-\setbeamerfont{institute}				{size=\footnotesize}
+\setbeamerfont{author}					        {size=\small}
+\setbeamerfont{date}					        {size=\footnotesize}
+\setbeamerfont{institute}				        {size=\footnotesize}
 
-\setbeamerfont{alerted text}				{series=\bfseries}
+\setbeamerfont{alerted text}				    {series=\bfseries}
 
-\setbeamerfont{frametitle}				{series=\bfseries}
-\setbeamerfont{framesubtitle}				{series=\mdseries}
-\setbeamerfont{footline}				{size=\scriptsize}
-\setbeamerfont{block title}				{size=\normalsize, series=\bfseries}
-\setbeamerfont{block body}				{size=\normalsize}
+\setbeamerfont{frametitle}				        {series=\bfseries}
+\setbeamerfont{framesubtitle}				    {series=\mdseries}
+\setbeamerfont{footline}				        {size=\scriptsize}
+\setbeamerfont{block title}				        {size=\normalsize, series=\bfseries}
+\setbeamerfont{block body}				        {size=\normalsize}
+
+\setbeamerfont{footnote}				        {size=\scriptsize, series=\mdseries}
 
 \usefonttheme{serif}
 
@@ -84,12 +88,22 @@
 \setbeamertemplate{blocks}[rounded]
 
 % bullet points
-\setbeamertemplate{itemize item}			{\textbullet}
-\setbeamertemplate{itemize subitem}			{\textopenbullet}
+\setbeamertemplate{itemize item}			    {\textbullet}
+\setbeamertemplate{itemize subitem}			    {\textopenbullet}
 \setbeamertemplate{itemize subsubitem}			{\textendash}
 
 % paragraph spacing
-\setlength{\parskip}					{5pt}
+\setlength{\parskip}					        {5pt}
+
+% colored box environment
+\newcommand{\coloredbox}[1]{%
+	\par\smallskip
+	\fcolorbox{white}{polyured!10}{%
+		\parbox{.95\linewidth}
+		{\footnotesize\sffamily\color{polyured} #1}
+	}
+	\smallskip\par
+}
 
 % code environment
 \lstdefinestyle{mystyle}{
@@ -194,7 +208,7 @@
 	\setbeamertemplate{footline}{}
 	\begin{frame}[c]{}
 		\begin{picture}(0,0)
-			\put(-28.5,-25){\includegraphics[width=1.01\paperwidth]{source/last-frame}}
+			\put(-29,-45){\includegraphics[width=1\paperwidth]{source/last-frame}}
 		\end{picture}
 	\end{frame}
 \endgroup
